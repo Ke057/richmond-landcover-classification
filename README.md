@@ -1,4 +1,7 @@
-![banner](figures/rf_classification_maps.png)
+<img width="1790" height="601" alt="下载" src="https://github.com/user-attachments/assets/06e07d98-086c-4fbe-924c-ace5fc8dfc77" />
+<img width="1790" height="601" alt="下载 (1)" src="https://github.com/user-attachments/assets/a6d27690-cb33-413c-a585-f74373b8f5ab" />
+
+
 
 # Richmond Land-Cover Classification (2020–2024)
 ### Mapping Urban Change with Sentinel-2, K-Means and Random Forest
@@ -59,6 +62,15 @@ Using **Sentinel-2 imagery** for **2020, 2022 and 2024**, this project investiga
 > **Research question:**  
 > *How do supervised and unsupervised classification methods differ in mapping land cover and detecting land-use change in Richmond upon Thames between 2020 and 2024?*
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6a0090a3-2516-4075-84f1-6222583a53cc" width="500">
+</p>
+
+<p align="center">
+  <em>Location of Richmond upon Thames within Greater London.</em><br>
+  <small>Source: <i>Richmond upon Thames location map (detailed borough map)</i>, Wikimedia Commons (CC BY-SA).</small>
+</p>
+
 ---
 
 ## 2 Data Source and Pre-processing
@@ -97,43 +109,47 @@ Both classification methods use the same Sentinel-2 inputs, but differ in how cl
 
 ---
 
-### 3.1 Unsupervised K-Means
+## 3.1 Unsupervised K-Means
 
-K-Means clustering groups pixels according to spectral similarity without using labelled training data.
+K-Means is an unsupervised clustering method that groups pixels into land-cover classes based on spectral similarity, without labelled training data.
 
-Workflow:
+### Workflow
+- Use annual Sentinel-2 composites (2020, 2022, 2024)
+- Randomly sample pixel data and standardise features
+- Run K-Means clustering (**k = 4**)
+- Interpret clusters manually based on spectral and spatial patterns
+- Generate annual land-cover maps for change analysis
+<img width="2028" height="768" alt="屏幕截图 2026-05-23 193855" src="https://github.com/user-attachments/assets/05ebe198-e300-498d-a766-72161aa8081b" />
+<p align="center"><em>Figure 2. K-Means workflow</em></p>
 
-- Sample Sentinel-2 pixels
-- Standardise spectral features
-- Run K-Means clustering (`k = 4`)
-- Interpret clusters using spectral signatures
-- Assign land-cover meaning manually
+### Model settings
+- Pixel samples standardised using **StandardScaler**
+- **k = 4** selected using elbow and silhouette analysis
 
-Land-cover labels were interpreted as:
-
+### Land-cover classes
 - Water
 - Vegetation
 - Urban
 - Bare soil / bright surface
 
-K-Means is useful for exploratory classification, but cluster interpretation requires manual judgement.
+> K-Means is useful for exploratory classification, but cluster interpretation requires manual judgement.
 
 ---
 
-### 3.2 Supervised Random Forest
+## 3.2 Supervised Random Forest
 
-Random Forest uses labelled training data to classify land-cover types.
+Random Forest is a supervised classifier that uses labelled pixel samples to classify land-cover into four classes.
 
-Workflow:
+### Workflow
+- Use **9,384 labelled pixel samples** across 4 classes
+- Split data into **80% training / 20% testing**
+- Train a **300-tree Random Forest** classifier
+- Predict land-cover classes and evaluate performance
+- Apply the trained model to annual Sentinel-2 imagery (2020, 2022, 2024)
+<img width="2326" height="638" alt="屏幕截图 2026-05-23 194532" src="https://github.com/user-attachments/assets/c318ceee-9fab-4df8-8ed3-f9e0863560cc" />
+<p align="center"><em>Figure 2. Random-Forest workflow</em></p>
 
-- Use labelled training samples
-- Train Random Forest classifier
-- Predict land-cover classes
-- Evaluate performance on test set
-- Apply model to annual imagery
-
-Evaluation metrics:
-
+### Evaluation metrics
 - Accuracy
 - Precision
 - Recall
@@ -141,15 +157,21 @@ Evaluation metrics:
 - Confusion Matrix
 - Cohen’s Kappa
 
-### Random Forest Performance
+### Feature importance
+- **NDVI:** 0.284
+- **B8 (NIR):** 0.282
+- **B2 (Blue):** 0.161
+- **B3 (Green):** 0.144
+- **B4 (Red):** 0.129
+
+### Performance
 
 | Metric | Score |
-|--------|------:|
-| **Accuracy** | **0.87** |
-| **Cohen’s κ** | **0.81** |
+|--------|-------|
+| Accuracy | **0.87** |
+| Cohen’s κ | **0.81** |
 
-Random Forest produced strong classification performance, especially for water and vegetation classes.
-
+> Random Forest produced more reliable classification results, especially for water and vegetation classes.
 ---
 
 ## 4 Notebooks and Quick Start
@@ -162,12 +184,6 @@ Random Forest produced strong classification performance, especially for water a
 
 ### Quick Start
 
-Clone the repository:
-
-```bash
-git clone https://github.com/Ke057/richmond-landcover-classification.git
-```
-
 Open notebooks in **Google Colab** or Jupyter and run sequentially.
 
 ---
@@ -176,34 +192,33 @@ Open notebooks in **Google Colab** or Jupyter and run sequentially.
 
 ---
 
-### 5.1 Random Forest Classification Maps
+### 5.1 K-means classifications (2020，2022，2024) Classification Maps
+<p align="center">
+  <img width="500" alt="kmeans_classification_perfect_stable" src="https://github.com/user-attachments/assets/20dee379-096d-4428-8e00-34557cdc311a" />
+</p>
 
-```text
-figures/rf_classification_maps.png
-```
+<p align="center"><em>Figure 4. Animated K-Means land-cover classification maps for 2020, 2022 and 2024.</em></p>
 
-Random Forest classification maps were generated for:
 
-- 2020
-- 2022
-- 2024
 
-Land-cover classes:
 
-- Water
-- Vegetation
-- Urban
-- Bare soil / bright surface
+### 5.2 Random-Forest classifications (2020，2022，2024) Classification Maps
+<p align="center">
+  <img width="500" alt="rf_classification_perfect_stable" src="https://github.com/user-attachments/assets/aea6c7e3-0046-4d3e-a9be-13e9db9edf67" />
+</p>
 
-These maps show the spatial distribution of land cover across Richmond upon Thames.
+<p align="center"><em>Figure 5. Animated Random Forest land-cover classification maps for 2020, 2022 and 2024.</em></p>
+
 
 ---
 
-### 5.2 Feature Importance
+### 5.3 Feature Importance
 
-```text
-figures/feature_importance.png
-```
+<p align="center">
+  <img width="500" alt="feature_importance" src="https://github.com/user-attachments/assets/a59f466b-b19f-4bec-b4bd-551580654d8c" />
+</p>
+
+<p align="center"><em>Figure 6. Random Forest feature importance for spectral bands and NDVI.</em></p>
 
 Random Forest feature importance results show:
 
@@ -225,7 +240,7 @@ This suggests vegetation-related spectral information plays the strongest role i
 
 ---
 
-### 5.3 Land-Cover Area Comparison (2020 vs 2024)
+### 5.4 Land-Cover Area Comparison (2020 vs 2024)
 
 | Class | 2020 (%) | 2024 (%) | Change (%) |
 |-------|---------:|---------:|-----------:|
@@ -243,7 +258,7 @@ This suggests vegetation-related spectral information plays the strongest role i
 
 ---
 
-### 5.4 Change Detection (2020 → 2024)
+### 5.5 Change Detection (2020 → 2024)
 
 Visual change maps highlight:
 
@@ -258,6 +273,13 @@ Random Forest change summary:
 | Urban gain (%) | 0.19 |
 | Vegetation loss pixels | 26519 |
 | Vegetation loss (%) | 1.29 |
+<p align="center">
+  <img alt="change_detection_comparison" src="https://github.com/user-attachments/assets/26fb9802-28c0-4d8c-8639-a197aa8f9722" />
+</p>
+
+<p align="center"><em>Figure 9. Land-cover change detection (2020-2024), highlighting urban gain and vegetation loss in Richmond upon Thames based on Random Forest classification results.</em></p>
+
+
 
 K-Means change summary:
 
@@ -268,8 +290,13 @@ K-Means change summary:
 | Vegetation loss pixels | 24784 |
 | Vegetation loss (%) | 1.20 |
 
-Random Forest detected slightly more subtle change than K-Means.
+<p align="center">
+  <img alt="area_comparison" src="https://github.com/user-attachments/assets/c26b28ea-d700-4e21-b649-0cf96590f7a6" />
+</p>
 
+<p align="center"><em>Figure 8. Land-cover change detection (2020-2024), highlighting urban gain and vegetation loss in Richmond upon Thames based on K-Means classification results.</em></p>
+
+> Random Forest detected slightly more subtle change than K-Means.
 ---
 
 ## 6 Comparison of Methods
@@ -333,18 +360,6 @@ This project shows that:
 
 ---
 
-## Repository Structure
-
-```text
-richmond-landcover-classification/
-│── 01_preprocessing.ipynb
-│── 02_unsupervised_kmeans.ipynb
-│── 03_supervised_randomforest.ipynb
-│── figures/
-│── README.md
-```
-
----
 
 ## 8 References & Acknowledgements
 
