@@ -30,17 +30,17 @@ The study evaluates classification accuracy, temporal land-cover change, and met
 <details open>
 <summary><strong>Table of Contents</strong></summary>
 
-1. [Project Motivation and Background](#1--project-motivation-and-background)  
-2. [Data Source and Pre-processing](#2--data-source-and-pre-processing)  
-3. [Method Overview](#3--method-overview)  
-   * [3.1 Unsupervised K-Means](#31--unsupervised-k-means)  
-   * [3.2 Supervised Random Forest](#32--supervised-random-forest)  
-4. [Notebooks and Quick Start](#4--notebooks-and-quick-start)  
-5. [Results](#5--results)  
-6. [Comparison of Methods](#6--comparison-of-methods)  
-7. [Key Findings](#7--key-findings)
-8. [Environmental Cost](#8--Environmental-cost)  
-9. [References & Acknowledgements](#8--references--acknowledgements)
+1. Project Motivation and Background
+2. Data Source and Pre-processing
+3. Method Overview
+   * 3.1 Unsupervised K-Means
+   * 3.2 Supervised Random Forest
+4. Notebooks and Quick Start
+5. Results 
+6. Comparison of Methods
+7. Key Findings
+8. Environmental Cost
+9. References & Acknowledgements
 
 </details>
 
