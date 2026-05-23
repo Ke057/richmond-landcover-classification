@@ -30,17 +30,17 @@ The study evaluates classification accuracy, temporal land-cover change, and met
 <details open>
 <summary><strong>Table of Contents</strong></summary>
 
-- [Project Motivation and Background](#project-motivation-and-background)
-- [Data Source and Pre-processing](#data-source-and-pre-processing)
-- [Method Overview](#method-overview)
+1. [Project Motivation and Background](#project-motivation-and-background)
+2. [Data Source and Pre-processing](#data-source-and-pre-processing)
+3. [Method Overview](#method-overview)
   - [3.1 Unsupervised K-Means](#31-unsupervised-k-means)
   - [3.2 Supervised Random Forest](#32-supervised-random-forest)
-- [Notebooks and Quick Start](#notebooks-and-quick-start)
-- [Results](#results)
-- [Comparison of Methods](#comparison-of-methods)
-- [Key Findings](#key-findings)
-- [Environmental Cost](#environmental-cost)
-- [References & Acknowledgements](#references--acknowledgements)
+4. [Notebooks and Quick Start](#notebooks-and-quick-start)
+5. [Results](#results)
+6. [Comparison of Methods](#comparison-of-methods)
+7. [Key Findings](#key-findings)
+8. [Environmental Cost](#environmental-cost)
+9. [References & Acknowledgements](#references--acknowledgements)
 
 </details>
 
@@ -73,7 +73,7 @@ Using **Sentinel-2 imagery** for **2020, 2022 and 2024**, this project investiga
 
 ---
 
-## 2 Data Source and Pre-processing
+## 2. Data Source and Pre-processing
 
 This project uses **Sentinel-2 Level-2A surface reflectance imagery** for annual land-cover classification.
 
@@ -103,7 +103,7 @@ All preprocessing steps are contained in:
 
 ---
 
-## 3 Method Overview
+## 3. Method Overview
 
 Both classification methods use the same Sentinel-2 inputs, but differ in how classes are assigned.
 
@@ -157,12 +157,15 @@ Random Forest is a supervised classifier that uses labelled pixel samples to cla
 - Confusion Matrix
 - Cohen’s Kappa
 
-### Feature importance
-- **NDVI:** 0.284
-- **B8 (NIR):** 0.282
-- **B2 (Blue):** 0.161
-- **B3 (Green):** 0.144
-- **B4 (Red):** 0.129
+
+
+### Feature Importance
+
+- **B8 (NIR): 0.287**
+- **NDVI: 0.283**
+- **B2 (Blue): 0.161**
+- **B3 (Green): 0.144**
+- **B4 (Red): 0.125**
 
 ### Performance
 
@@ -174,7 +177,7 @@ Random Forest is a supervised classifier that uses labelled pixel samples to cla
 > Random Forest produced more reliable classification results, especially for water and vegetation classes.
 ---
 
-## 4 Notebooks and Quick Start
+## 4. Notebooks and Quick Start
 
 | Notebook | Purpose |
 |----------|---------|
@@ -188,7 +191,7 @@ Open notebooks in **Google Colab** or Jupyter and run sequentially.
 
 ---
 
-## 5 Results
+## 5. Results
 
 ---
 
@@ -224,37 +227,30 @@ Random Forest feature importance results show:
 
 | Feature | Importance |
 |---------|-----------:|
-| NDVI | 0.284 |
-| B8 | 0.282 |
+| B8 | 0.287 |
+| NDVI | 0.283 |
 | B2 | 0.161 |
 | B3 | 0.144 |
-| B4 | 0.129 |
+| B4 | 0.125 |
+
 
 **Interpretation:**
 
-- **NDVI** was the most important predictor
-- **B8 (Near Infrared)** was almost equally important
-- Visible bands contributed less
-
-This suggests vegetation-related spectral information plays the strongest role in classification.
+B8 (Near Infrared) and NDVI were the two most important predictors, indicating that vegetation-related spectral information played the strongest role in land-cover classification. Visible bands contributed less, with B4 having the lowest importance.
 
 ---
 
-### 5.4 Land-Cover Area Comparison (2020 vs 2024)
+### 5.4 Land-Cover Area Comparison (2020, 2022 and 2024)
 
-| Class | 2020 (%) | 2024 (%) | Change (%) |
-|-------|---------:|---------:|-----------:|
-| Water | 4.73 | 4.86 | +0.12 |
-| Vegetation | 61.34 | 64.39 | +3.05 |
-| Urban | 33.73 | 30.62 | -3.11 |
-| Bare soil / bright surface | 0.20 | 0.13 | -0.06 |
 
-**Interpretation:**
+| Class | 2020 (%) | 2022 (%) | 2024 (%) | Change 2020–2022 (%) | Change 2022–2024 (%) | Change 2020–2024 (%) |
+|-------|---------:|---------:|---------:|---------------------:|---------------------:|---------------------:|
+| Water | 4.71 | 3.90 | 4.86 | -0.81 | +0.96 | +0.16 |
+| Vegetation | 61.29 | 63.09 | 64.28 | +1.79 | +1.20 | +2.99 |
+| Urban | 33.81 | 32.86 | 30.72 | -0.95 | -2.13 | -3.08 |
+| Bare soil / bright surface | 0.19 | 0.16 | 0.13 | -0.04 | -0.03 | -0.07 |
 
-- Vegetation increased
-- Urban area decreased slightly
-- Water remained stable
-- Bare soil occupied a very small proportion
+Vegetation increased from **61.29%** in 2020 to **64.28%** in 2024, while urban area decreased from **33.81%** to **30.72%**. Water remained relatively stable overall, and bare soil / bright surface occupied only a very small proportion of the study area.
 
 ---
 
@@ -267,12 +263,12 @@ Visual change maps highlight:
 
 Random Forest change summary:
 
-| Metric | Value |
-|--------|------:|
-| Urban gain pixels | 3957 |
-| Urban gain (%) | 0.19 |
-| Vegetation loss pixels | 26519 |
-| Vegetation loss (%) | 1.29 |
+| Period | Urban gain pixels | Urban gain (%) | Vegetation loss pixels | Vegetation loss (%) |
+|--------|------------------:|---------------:|-----------------------:|--------------------:|
+| 2020 → 2022 | 32,717 | 3.54 | 1,597 | 0.17 |
+| 2022 → 2024 | 20,912 | 2.26 | 7,051 | 0.76 |
+| 2020 → 2024 | 24,864 | 2.69 | 5,341 | 0.58 |
+
 <p align="center">
   <img alt="change_detection_comparison" src="https://github.com/user-attachments/assets/26fb9802-28c0-4d8c-8639-a197aa8f9722" />
 </p>
@@ -283,12 +279,11 @@ Random Forest change summary:
 
 K-Means change summary:
 
-| Metric | Value |
-|--------|------:|
-| Urban gain pixels | 3055 |
-| Urban gain (%) | 0.15 |
-| Vegetation loss pixels | 24784 |
-| Vegetation loss (%) | 1.20 |
+| Period | Urban gain pixels | Urban gain (%) | Vegetation loss pixels | Vegetation loss (%) |
+|--------|------------------:|---------------:|-----------------------:|--------------------:|
+| 2020 → 2022 | 2,587 | 0.28 | 74,956 | 8.11 |
+| 2022 → 2024 | 3,692 | 0.40 | 9,708 | 1.05 |
+| 2020 → 2024 | 4,101 | 0.44 | 23,738 | 2.57 |
 
 <p align="center">
   <img alt="area_comparison" src="https://github.com/user-attachments/assets/c26b28ea-d700-4e21-b649-0cf96590f7a6" />
@@ -296,10 +291,29 @@ K-Means change summary:
 
 <p align="center"><em>Figure 8. Land-cover change detection (2020-2024), highlighting urban gain and vegetation loss in Richmond upon Thames based on K-Means classification results.</em></p>
 
-> Random Forest detected slightly more subtle change than K-Means.
+> The results show that Random Forest detected more urban gain than K-Means, while K-Means detected substantially higher vegetation loss in the 2020 → 2022 period. This difference reflects the greater sensitivity of Random Forest to built-up change and the stronger dependence of K-Means on cluster interpretation.
 ---
 
-## 6 Comparison of Methods
+
+## 6. Comparison of Methods
+
+Random Forest Classification Accuracy
+
+The Random Forest model was trained and validated using labelled samples derived from **ESA WorldCover 2021**, then applied to Sentinel-2 imagery from **2020, 2022 and 2024** for annual land-cover classification and change detection.
+
+The model was evaluated using a held-out **20% test set** from the 2021 labelled dataset.
+
+- Accuracy: **0.87**
+- Cohen’s κ: **0.81**
+
+<p align="center">
+  <img width="500" alt="environmental_cost_summary" src="https://github.com/user-attachments/assets/49e91533-55b9-4917-83d3-1822d01f1411" />
+</p>
+
+<p align="center"><em>Figure 4. Confusion matrix showing Random Forest classification performance on the held-out 2021 test set.</em></p>
+
+> The confusion matrix shows strong classification performance across all four land-cover classes, with most predictions concentrated along the diagonal, indicating correct classification.
+
 
 | Aspect | K-Means | Random Forest |
 |--------|--------|--------------|
@@ -341,27 +355,42 @@ Limitations:
 
 ---
 
-## 7 Key Findings
+## 7. Key Findings
 
 ### Main conclusions
 
-- **Random Forest outperformed K-Means** for land-cover classification reliability.
-- **Water was mapped consistently** by both methods.
-- **Vegetation was the dominant land-cover class** in Richmond upon Thames.
-- **Urban area showed slight decline between 2020 and 2024**.
-- **Random Forest detected more subtle land-cover change** than K-Means.
-- **NDVI and Near Infrared (B8) were the most important classification features**.
+- **Random Forest outperformed K-Means** in land-cover classification reliability and produced more accurate class predictions.
+- **Water was mapped consistently** by both methods across all years.
+- **Vegetation was the dominant land-cover class** in Richmond upon Thames throughout the study period.
+- **Urban land cover showed a noticeable decline** between 2020 and 2024 (−3.08%), while vegetation increased (+2.99%).
+- **Random Forest was more sensitive to urban gain detection**, whereas K-Means identified greater vegetation loss in some periods.
+- **B8 (Near Infrared) and NDVI were the most important classification features**, indicating that vegetation-related spectral information played the strongest role in classification.
 
-### Final answer to project question
+
 
 This project shows that:
 
-> **Random Forest is the more reliable method for urban land-cover classification and change detection in Richmond upon Thames, while K-Means provides useful exploratory clustering but requires more subjective interpretation.**
-
----
+**Random Forest is the more reliable method for urban land-cover classification and change detection in Richmond upon Thames, while K-Means provides useful exploratory clustering but requires more manual interpretation and is more sensitive to cluster definition.**
 
 
-## 8 References & Acknowledgements
+## 8. Environmental Cost
+
+This project estimates the computational environmental cost of running the three notebooks using runtime, assumed CPU power, and UK grid carbon intensity.
+
+| Stage | Runtime (s) | Runtime (hrs) | Energy (kWh) | CO₂e (g) | Cost (£) |
+|---|---:|---:|---:|---:|---:|
+| Preprocessing | 318.61 | 0.0885 | 0.001770 | 0.412 | 0.0005 |
+| K-Means classification | 13.19 | 0.0037 | 0.000073 | 0.017 | 0.0000 |
+| Random Forest classification | 86.21 | 0.0239 | 0.000479 | 0.112 | 0.0001 |
+| **Total** | **418.01** | **0.1161** | **0.002322** | **0.541** | **0.0006** |
+
+**Assumptions:** CPU power = 20 W, carbon intensity = 0.233 kg CO₂e/kWh, electricity cost = £0.30/kWh.
+
+The total estimated computational footprint of the project was approximately **0.541 g CO₂e**, indicating that the workflow was lightweight and had a very small environmental cost. The preprocessing notebook contributed the largest share because it had the longest runtime, while K-Means was the least computationally expensive stage.
+
+
+
+## 9. References & Acknowledgements
 
 This repository was developed as a final project for:
 
@@ -369,10 +398,21 @@ This repository was developed as a final project for:
 
 ### References
 
-- Sentinel-2 Level-2A imagery (Copernicus)
-- ESA WorldCover
-- Scikit-learn documentation
-- UCL AI4EO course materials
+1. Breiman, L. (2001). *Random Forests*. Machine Learning, 45(1), 5–32. https://doi.org/10.1023/A:1010933404324
+
+2. Zhang, T., Su, J., Xu, Z., Luo, Y., & Li, J. (2021). *Sentinel-2 satellite imagery for urban land cover classification by optimized Random Forest classifier*. Applied Sciences, 11(2), 543. https://doi.org/10.3390/app11020543
+
+3. Drusch, M., Del Bello, U., Carlier, S., et al. (2012). *Sentinel-2: ESA’s optical high-resolution mission for GMES operational services*. Remote Sensing of Environment, 120, 25–36. https://doi.org/10.1016/j.rse.2011.11.026
+
+4. Rouse, J. W., Haas, R. H., Schell, J. A., & Deering, D. W. (1974). *Monitoring vegetation systems in the Great Plains with ERTS*. NASA Special Publication, 351, 309–317.  *(NDVI original paper)*
+
+5. Abdi, A. M. (2020). *Land cover and land use classification performance of machine learning algorithms in a boreal landscape using Sentinel-2 data*. GIScience & Remote Sensing, 57(1), 1–20. https://doi.org/10.1080/15481603.2019.1650447
+
+6. Pelc-Mieczkowska, R. (2021). *The application of Sentinel-2 data for automatic forest cover changes assessment*. Civil and Environmental Engineering Reports, 31(4), 148–166. https://doi.org/10.2478/ceer-2021-0054
+
+7. Foody, G. M. (2002). *Status of land cover classification accuracy assessment*. Remote Sensing of Environment, 80(1), 185–201. https://doi.org/10.1016/S0034-4257(01)00295-4
+
+8. Tempa, K., et al. (2024). *Utilizing Sentinel-2 satellite imagery for land use/land cover and NDVI change analysis*. Environmental Challenges, 14, 100847.
 
 ### Acknowledgements
 
