@@ -40,7 +40,7 @@ The study evaluates classification accuracy, temporal land-cover change, and met
 6. [Comparison of Methods](#comparison-of-methods)
 7. [Key Findings](#key-findings)
 8. [Environmental Cost](#environmental-cost)
-9. [References & Acknowledgements](#references--acknowledgements)
+9. [References](#references)
 
 </details>
 
