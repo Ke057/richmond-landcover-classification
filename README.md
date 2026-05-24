@@ -391,13 +391,8 @@ The total estimated computational footprint of the project was approximately **0
 
 
 
-## 9. References & Acknowledgements
+## 9. References
 
-This repository was developed as a final project for:
-
-**UCL – Artificial Intelligence for Earth Observation**
-
-### References
 
 1. Breiman, L. (2001). *Random Forests*. Machine Learning, 45(1), 5–32. https://doi.org/10.1023/A:1010933404324
 
@@ -415,12 +410,4 @@ This repository was developed as a final project for:
 
 8. Tempa, K., et al. (2024). *Utilizing Sentinel-2 satellite imagery for land use/land cover and NDVI change analysis*. Applied Sciences, 14(4), 1578.  https://www.mdpi.com/2076-3417/14/4/1578
 
-### Acknowledgements
 
-Special thanks to:
-
-- UCL teaching team
-- AI for Earth Observation course materials
-- Open-source geospatial and machine-learning libraries
-
----
