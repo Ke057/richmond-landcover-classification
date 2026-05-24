@@ -30,7 +30,7 @@ The study evaluates classification accuracy, temporal land-cover change, and met
 <details open>
 <summary><strong>Table of Contents</strong></summary>
 
-1. [Project Motivation and Background](#project-motivation-and-background)
+ [1.Project Motivation and Background](#project-motivation-and-background)
 2. [Data Source and Pre-processing](#data-source-and-pre-processing)
 3. [Method Overview](#method-overview)
   - [3.1 Unsupervised K-Means](#31-unsupervised-k-means)
