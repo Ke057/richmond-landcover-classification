@@ -67,8 +67,8 @@ Using **Sentinel-2 imagery** for **2020, 2022 and 2024**, this project investiga
 </p>
 
 <p align="center">
-  <em>Location of Richmond upon Thames within Greater London.</em><br>
-  <small>Source: <i>Figure 1. Richmond upon Thames location map (detailed borough map)</i>, Wikimedia Commons (CC BY-SA).</small>
+  <em>Figure 1. Location of Richmond upon Thames within Greater London.</em><br>
+  <small>Source: <i>Richmond upon Thames location map (detailed borough map)</i>, Wikimedia Commons (CC BY-SA).</small>
 </p>
 
 ---
