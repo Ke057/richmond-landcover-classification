@@ -68,7 +68,7 @@ Using **Sentinel-2 imagery** for **2020, 2022 and 2024**, this project investiga
 
 <p align="center">
   <em>Location of Richmond upon Thames within Greater London.</em><br>
-  <small>Source: <i>Richmond upon Thames location map (detailed borough map)</i>, Wikimedia Commons (CC BY-SA).</small>
+  <small>Source: <i>Figure 1. Richmond upon Thames location map (detailed borough map)</i>, Wikimedia Commons (CC BY-SA).</small>
 </p>
 
 ---
@@ -147,7 +147,7 @@ Random Forest is a supervised classifier that uses labelled pixel samples to cla
 - Predict land-cover classes and evaluate performance
 - Apply the trained model to annual Sentinel-2 imagery (2020, 2022, 2024)
 <img width="2326" height="638" alt="屏幕截图 2026-05-23 194532" src="https://github.com/user-attachments/assets/c318ceee-9fab-4df8-8ed3-f9e0863560cc" />
-<p align="center"><em>Figure 2. Random-Forest workflow</em></p>
+<p align="center"><em>Figure 3. Random-Forest workflow</em></p>
 
 ### Evaluation metrics
 - Accuracy
@@ -273,7 +273,7 @@ Random Forest change summary:
   <img alt="area_comparison" src="https://github.com/user-attachments/assets/c26b28ea-d700-4e21-b649-0cf96590f7a6" />
 </p>
 
-<p align="center"><em>Figure 8. Land-cover change detection (2020-2024), highlighting urban gain and vegetation loss in Richmond upon Thames based on Random Forest classification results.</em></p>
+<p align="center"><em>Figure 7. Land-cover change detection (2020-2024), highlighting urban gain and vegetation loss in Richmond upon Thames based on Random Forest classification results.</em></p>
 
 
 
@@ -289,7 +289,7 @@ K-Means change summary:
   <img alt="change_detection_comparison" src="https://github.com/user-attachments/assets/26fb9802-28c0-4d8c-8639-a197aa8f9722" />
 </p>
 
-<p align="center"><em>Figure 9. Land-cover change detection (2020-2024), highlighting urban gain and vegetation loss in Richmond upon Thames based on K-Means classification results.</em></p>
+<p align="center"><em>Figure 8. Land-cover change detection (2020-2024), highlighting urban gain and vegetation loss in Richmond upon Thames based on K-Means classification results.</em></p>
 
 
 > The results show that Random Forest detected more urban gain than K-Means, while K-Means detected substantially higher vegetation loss in the 2020 → 2022 period. This difference reflects the greater sensitivity of Random Forest to built-up change and the stronger dependence of K-Means on cluster interpretation.
@@ -311,7 +311,7 @@ The model was evaluated using a held-out **20% test set** from the 2021 labelled
   <img width="500" alt="environmental_cost_summary" src="https://github.com/user-attachments/assets/49e91533-55b9-4917-83d3-1822d01f1411" />
 </p>
 
-<p align="center"><em>Figure 4. Confusion matrix showing Random Forest classification performance on the held-out 2021 test set.</em></p>
+<p align="center"><em>Figure 9. Confusion matrix showing Random Forest classification performance on the held-out 2021 test set.</em></p>
 
 > The confusion matrix shows strong classification performance across all four land-cover classes, with most predictions concentrated along the diagonal, indicating correct classification.
 
