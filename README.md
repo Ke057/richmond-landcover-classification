@@ -404,17 +404,15 @@ This repository was developed as a final project for:
 
 3. Drusch, M., Del Bello, U., Carlier, S., et al. (2012). *Sentinel-2: ESA’s optical high-resolution mission for GMES operational services*. Remote Sensing of Environment, 120, 25–36. https://doi.org/10.1016/j.rse.2011.11.026
 
-4. Rouse, J. W., Haas, R. H., Schell, J. A., & Deering, D. W. (1974). *Monitoring vegetation systems in the Great Plains with ERTS*. NASA Special Publication, 351, 309–317. (NDVI original paper)  
-https://ntrs.nasa.gov/api/citations/19740022614/downloads/19740022614.pdf
+4. Rouse, J. W., Haas, R. H., Schell, J. A., & Deering, D. W. (1974). *Monitoring vegetation systems in the Great Plains with ERTS*. NASA Special Publication, 351, 309–317. (NDVI original paper)  https://ntrs.nasa.gov/api/citations/19740022614/downloads/19740022614.pdf
 
 5. Abdi, A. M. (2020). *Land cover and land use classification performance of machine learning algorithms in a boreal landscape using Sentinel-2 data*. GIScience & Remote Sensing, 57(1), 1–20. https://doi.org/10.1080/15481603.2019.1650447
 
 6. Pelc-Mieczkowska, R. (2021). *The application of Sentinel-2 data for automatic forest cover changes assessment*. Civil and Environmental Engineering Reports, 31(4), 148–166. https://doi.org/10.2478/ceer-2021-0054
 
-7. Foody, G. M. (2002). *Status of land cover classification accuracy assessment*. Remote Sensing of Environment, 80(1), 185–201. https://doi.org/10.1016/S0034-4257(01)00295-4
+7. Foody, G. M. (2002). *Status of land cover classification accuracy assessment*. Remote Sensing of Environment, 80(1), 185–201.https://doi.org/10.1016/S0034-4257(01)00295-4
 
-8. Tempa, K., et al. (2024). *Utilizing Sentinel-2 satellite imagery for land use/land cover and NDVI change analysis*. Applied Sciences, 14(4), 1578.  
-https://www.mdpi.com/2076-3417/14/4/1578
+8. Tempa, K., et al. (2024). *Utilizing Sentinel-2 satellite imagery for land use/land cover and NDVI change analysis*. Applied Sciences, 14(4), 1578.  https://www.mdpi.com/2076-3417/14/4/1578
 
 ### Acknowledgements
 
